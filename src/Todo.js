@@ -25,7 +25,7 @@ result=(
 </div>
 )} else{
   // move my div to 
-result
+
 }
     return (
       <div>
