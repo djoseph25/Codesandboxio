@@ -1,23 +1,24 @@
 import React, { Component } from "react";
-import uuid from 'uuid'
+import uuid from "uuid";
 
 class TodoListForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { task: '' };
+    this.state = { task: "" };
   }
-
-handleSubmit = (evt) =>{
-  evt.preventDefault()
-  this.props.addTodo({...this.state, id: uuid()})
-  this.setState({task:''})
-}
 
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value
     });
   };
+
+  handleSubmit = (evt) => {
+    evt.preventDefault();
+    this.props.addTodo({ ...this.state, id: uuid() });
+    this.setState({ task: "" });
+  };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -30,10 +31,9 @@ handleSubmit = (evt) =>{
           placeholder="New Todo"
           id="task"
           name="task"
-          value={this.state.name}
+          value={this.state.task}
           onChange={this.handleChange}
         />
-
         <button>Add Todo</button>
       </form>
     );
